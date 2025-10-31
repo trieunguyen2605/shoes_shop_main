@@ -343,7 +343,7 @@ header{
 }
 
 .login-forgot_password{
-    
+
 }
 .login-input:nth-child(1){
 }
@@ -384,4 +384,118 @@ header{
 }
 .ft-3 a:hover{
     color: orange;
+}
+
+/* /////////////////////////////////// */
+/* CART */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: flex-end;
+    z-index: 9999;
+}
+
+.cart {
+    width: 400px;
+    background: #fff;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.item-info h5 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.item-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.item-quantity button {
+    border: none;
+    background: #eee;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+.cart-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #270754;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background: #421f86;
+}
+
+.close-cart {
+    font-size: 22px;
+    cursor: pointer;
+    color: #270754;
 }

@@ -38,8 +38,8 @@
                 
                 <ul class="header-button-list">
                     <li class="header-btn btn-logIN"> 
-                        <a href="#" class=" header-btn_link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Đăng nhập  
+                        <a href="#" class=" header-btn_link" data-bs-toggle="modal" data-bs-target="#register">
+                            Đăng kí  
                         </a>
                     </li>
                     <li class="header-btn btn-logIN"> 
@@ -108,7 +108,7 @@
                                     <a href="#content-section1">Giày Nam</a>
                                 </p>
                                 <p id="content-link2">
-                                    <a href="#content-section2">Giày NỮ </a>
+                                    <a href="#content-section2">Giày Nữ </a>
                                 </p>
                                 <p id="content-link3">
                                     <a href="#content-section3">Giày Unisex</a>
@@ -213,12 +213,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- shopping cart -->
+        <div class="cart-overlay" id="cart">
+    <div class="cart">
+        <div class="cart-header">
+            <h3>Giỏ hàng của bạn</h3>
+            <span class="close-cart">&times;</span>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <h4>Tổng: <span id="cart-total">0đ</span></h4>
+            <button class="checkout-btn">Thanh toán</button>
+        </div>
+    </div>
+</div>
     </main>
 
     <footer>
         <div class="footer"> 
             <div class="ft-1">
-              
                 <div style="display: flex;">
                 <div >
                     <img style="width: 150px; height: 150px; padding: 0 10px;" src="/asset/img/logo_trang.png" alt="">
@@ -261,6 +275,21 @@
                         <input class="login-input" type="text" placeholder="Mật khẩu!">
                         <button class="login-input login-btn"> Đăng nhập </button>
                         <p class="login-forgot_password">Quên mật khẩu </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- register -->
+    <div class="modal" id="register" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="login-wrap">
+                    <h2 class="login-title"> Đăng kí </h2>
+                    <form action="" class="login-form">
+                        <input class="login-input" type="text" placeholder="Email/Số điện thoại!">
+                        <input class="login-input" type="text" placeholder="Mật khẩu!">
+                        <button class="login-input login-btn"> Đăng kí </button>
                     </form>
                 </div>
             </div>

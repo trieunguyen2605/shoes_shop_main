@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng - Miki Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="title">🛍️ Miki Shop</h1>
+
+    <div class="container">
+        <!-- Danh sách sản phẩm -->
+        <div class="products">
+            <div class="product">
+                <h3>Giày Nike Air</h3>
+                <p class="price">1200000</p>
+                <button class="add-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product">
+                <h3>Giày Adidas</h3>
+                <p class="price">1000000</p>
+                <button class="add-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product">
+                <h3>Giày Puma</h3>
+                <p class="price">900000</p>
+                <button class="add-cart">Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <!-- Giỏ hàng -->
+        <div class="cart">
+            <h2>🛒 Giỏ hàng</h2>
+            <ul class="cart-items"></ul>
+            <p class="total">Tổng: <span id="total-price">0</span>₫</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
