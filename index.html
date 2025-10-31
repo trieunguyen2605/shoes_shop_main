@@ -12,13 +12,34 @@
     <!--  link icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- link file  -->
-    <link rel="stylesheet" href="asset/css/base.css">
     <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/base.css">
 </head>
 <body>
-    <div class="hello"> Chào mừng bạn đến với MIKI shop !</div>
+    <div class="hello"> <p class="hello_text">Chào mừng bạn đến với MIKI shop !</p></div>
     <header>
         <div class="container-fluid display-center">
+            <div class="header-function">
+                <ul class="header-list">
+                    <li class="header-list_item">
+                        <a href="" class="header-link">Trang chủ </a>
+                    </li>
+                    <li class="header-list_item">
+                        <a href="" class="header-link">Sản phẩm</a>
+                    </li>
+                    <li class="header-list_item">
+                        <a href="" class="header-link"> Giới thiệu </a>
+                    </li>
+                    <li class="header-list_item">
+                        <a href="" class="header-link"> Liên hệ </a>
+                    </li>
+                </ul>
+                
+                <ul class="header-button-list">
+                    <li class="header-btn btn-signIN">Đăng kí </li>
+                    <li class="header-btn btn-logIN">Đăng nhập  </li>
+                </ul>
+            </div>
             <div class="header_wrap">
                 <div class="header-logo">
                     <img src="/asset/img/logo_trang.png" alt="">
@@ -38,11 +59,155 @@
     </header>
 
     <main>
-
+        <div class="container-fluid main_wrap">
+            <div class="info">
+                <div class="info-wrap">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="info-left">
+                                <!-- <p class="info-left_value"> -->
+                                    <h1 class="info-title">MIKI – Thế giới giày dành cho người yêu chuyển động!</h1>
+                                    <span class="info-value">
+                                    Tại MIKI, chúng tôi tin rằng mỗi bước chân đều kể một câu chuyện. Từ đôi giày đầu tiên bạn chọn cho buổi tập, đến đôi sneaker đồng hành cùng những hành trình mới — tất cả đều bắt đầu từ cảm hứng “chuyển động không giới hạn”.
+                                    MIKI mang đến cho bạn những thiết kế thể thao trẻ trung, năng động, cùng chất liệu êm ái và kiểu dáng thời thượng. Dù bạn là người yêu chạy bộ, thích dạo phố hay chỉ đơn giản muốn thể hiện phong cách riêng, MIKI luôn có một đôi giày dành riêng cho bạn.</span>
+                                    <span class="info-value_footer">MIKI – Đi để khác biệt.</span>
+                                <!-- </p> -->
+                                    <div class="info-rating">
+                                        <i class="fa-solid fa-star info-rating_item"></i>
+                                        <i class="fa-solid fa-star info-rating_item"></i>
+                                        <i class="fa-solid fa-star info-rating_item"></i>
+                                        <i class="fa-solid fa-star info-rating_item"></i>
+                                        <i class="fa-solid fa-star info-rating_item"></i>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="info-introduce">
+                                <img src="asset/img/banner1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="product-category_wrap sticky">
+                            <h1> Category</h1>
+                            <div class="category">
+                                <p id="content-link1" class="active">
+                                    <a href="#content-section1">Giày Nam</a>
+                                </p>
+                                <p id="content-link2">
+                                    <a href="#content-section2">Giày NỮ </a>
+                                </p>
+                                <p id="content-link3">
+                                    <a href="#content-section3">Giày Unisex</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>                                                                                           
+                    <div class="col-lg-10">
+                        <div class="product-list">
+                            <section id="content-section1">
+                                <h1> Giày Nam </h1>
+                                <div class="row gx-2 gy-2">
+                                    
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="content-section2">
+                                <h1> Giày Nữ </h1>
+                                <div class="row gx-2 gy-2">
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="content-section3">
+                                <h1> Giày Unisex </h1>
+                                <div class="row gx-2 gy-2">
+                                    
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="product-card">
+                                            <img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/096a19748cbf4ee39314140b744fd6fe_9366/giay-streettalk.jpg" alt="Giày thể thao MIKI">
+                                            <h3>Giày MIKI Air Run</h3>
+                                            <p class="price">890.000₫ <span class="old-price">1.090.000₫</span></p>
+                                            <button class="button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
-
+        <div class="footer"> hellu cạp cạp </div>
     </footer>
     <script src="script.js"></script>
 </body>

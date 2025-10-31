@@ -1,0 +1,7 @@
+.active{
+    font-size: 20px;
+    font-weight: 600;
+}
+.active a{
+    color: red;                             
+}
