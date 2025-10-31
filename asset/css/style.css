@@ -85,9 +85,19 @@ header{
     /* margin-right: 10px; */
 }
 
+.header-btn_link{
+    text-decoration: none;
+    color: #000;
+}
+
+.header-btn_link:hover{
+    color: rgb(255, 175, 28);
+}
+
 .header-btn:nth-child(1){
     margin-right: 16px;
 }
+
 .header_wrap{
     display: flex;
     align-items: center;
@@ -136,6 +146,8 @@ header{
     width: 600px;
     padding: 10px 20px;
     outline: none;
+    border-radius: 10px;
+    border: 1px solid #797474;
 }
 
 .header-buy{
@@ -299,6 +311,42 @@ header{
     background: #1d6cd9;
 }
 
+.login-wrap{
+    display: flex;  
+    flex-direction: column;
+}
+
+.login-title{
+    text-align: center;
+    padding: 10px 0 ;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-input{
+    width: 80%;
+    padding: 6px ;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    border: 1px solid #716e6e;
+}
+
+.login-btn{
+    background-color: orange;
+    border: none;
+
+}
+
+.login-forgot_password{
+    
+}
+.login-input:nth-child(1){
+}
 /* footer */
 .footer{
     background-color: black;
