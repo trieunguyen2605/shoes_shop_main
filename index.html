@@ -26,7 +26,7 @@
             <div class="header-function">
                 <ul class="header-list">
                     <li class="header-list_item">
-                        <a href="#" class="header-link">Trang chủ </a>
+                        <a href="#" class="header-link ">Trang chủ </a>
                     </li>
                     <li class="header-list_item">
                         <a href="#content-section1" class="header-link">Sản phẩm</a>
@@ -37,16 +37,19 @@
                 </ul>
                 
                 <ul class="header-button-list">
-                    <li class="header-btn btn-logIN"> 
-                        <a href="#" class=" header-btn_link" data-bs-toggle="modal" data-bs-target="#register">
-                            Đăng kí  
-                        </a>
-                    </li>
-                    <li class="header-btn btn-logIN"> 
-                        <a href="#" class=" header-btn_link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Đăng nhập 
-                        </a>
-                    </li>
+                    <button class="header__btn-admin"> Admin </button>
+                    <div class="header-btn-list_wrap">
+                        <li class="header-btn btn-logIN"> 
+                            <a href="#" class=" header-btn_link" data-bs-toggle="modal" data-bs-target="#register">
+                                Đăng kí  
+                            </a>
+                        </li>
+                        <li class="header-btn btn-logIN"> 
+                            <a href="#" class=" header-btn_link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Đăng nhập 
+                            </a>
+                        </li>
+                    </div>
                 </ul>
             </div>
             <div class="header_wrap">
@@ -60,6 +63,7 @@
                         <i class="fa-solid fa-magnifying-glass header-icon-input"></i>
                     </div>
                 </div>
+
                 <div class="header-buy">
                     <i class="fa-solid fa-cart-shopping buy-icon"></i>
                 </div>
@@ -77,7 +81,7 @@
                                 <!-- <p class="info-left_value"> -->
                                     <h1 class="info-title">MIKI – Thế giới giày dành cho người yêu chuyển động!</h1>
                                     <span class="info-value">
-                                    Tại MIKI, chúng tôi tin rằng mỗi bước chân đều kể một câu chuyện. Từ đôi giày đầu tiên bạn chọn cho buổi tập, đến đôi sneaker đồng hành cùng những hành trình mới — tất cả đều bắt đầu từ cảm hứng “chuyển động không giới hạn”.
+                                    Tại MIKI, chúng tôi tin rằng mỗi bước chân đều kể một câu chuyện. Từ đôi giày đầu tiên bạn chọn cho buổi tập — tất cả đều bắt đầu từ cảm hứng “chuyển động không giới hạn”.
                                     MIKI mang đến cho bạn những thiết kế thể thao trẻ trung, năng động, cùng chất liệu êm ái và kiểu dáng thời thượng. Dù bạn là người yêu chạy bộ, thích dạo phố hay chỉ đơn giản muốn thể hiện phong cách riêng, MIKI luôn có một đôi giày dành riêng cho bạn.</span>
                                     <span class="info-value_footer">MIKI – Đi để khác biệt.</span>
                                 <!-- </p> -->
@@ -119,13 +123,16 @@
                     <div class="col-lg-10">
                         <div class="product-list">
                             <section id="content-section1">
-                                <h1> Giày Nam </h1>
+                                <div class="content-title">
+                                    <h1> Giày Nam </h1>
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
                                 <div class="row gx-2 gy-2">
                                     
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giaynam1.jpg" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
+                                            <h3 class="product-name">java</h3>
                                             <p class="price">175.000đ <span class="old-price">240.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
@@ -133,7 +140,7 @@
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giaynam2.jpg" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
+                                            <h3 class="product-name">js</h3>
                                             <p class="price">169.000đ <span class="old-price">235.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
@@ -141,7 +148,7 @@
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giaynam3.jpg" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
+                                            <h3 class="product-name">meo meo</h3>
                                             <p class="price">189.000đ <span class="old-price">300.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
@@ -149,8 +156,8 @@
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giaynam4.png" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
-                                            <p class="price"> 200.000đ<span class="old-price">320.000đ</span></p>
+                                            <h3 class="product-name"> spring boot</h3>
+                                            <p class="price"> 200.000đ <span class="old-price">320.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
                                     </div>
@@ -162,7 +169,7 @@
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giaynu1.jpg" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
+                                            <h3 class="product-name">giày </h3>
                                             <p class="price">210.000đ <span class="old-price">340.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
@@ -171,7 +178,7 @@
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giaynu2.jpg" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
+                                            <h3 class="product-name">áo</h3>
                                             <p class="price">250.000đ <span class="old-price">300.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
@@ -179,8 +186,8 @@
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giaynu3.jpg" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
-                                            <p class="price"> 190.000đ<span class="old-price">280.000đ</span></p>
+                                            <h3 class="product-name">quần</h3>
+                                            <p class="price"> 190.000đ <span class="old-price"> 280.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
                                     </div>
@@ -193,15 +200,15 @@
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giayunisex1.jpg" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
-                                            <p class="price"> 190.000đ<span class="old-price">290.000đ</span></p>
+                                            <h3 class="product-name">giày xịn</h3>
+                                            <p class="price"> 190.000đ <span class="old-price">290.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="product-card">
                                             <img src="/asset/img/giayunisex2.jpg" alt="Giày thể thao MIKI">
-                                            <h3>Giày MIKI Air Run</h3>
+                                            <h3 class="product-name">Giày MIKI Air Run</h3>
                                             <p class="price">175.000đ <span class="old-price">280.000đ</span></p>
                                             <button class="button">Thêm vào giỏ</button>
                                         </div>
@@ -216,18 +223,18 @@
 
         <!-- shopping cart -->
         <div class="cart-overlay" id="cart">
-    <div class="cart">
-        <div class="cart-header">
-            <h3>Giỏ hàng của bạn</h3>
-            <span class="close-cart">&times;</span>
+            <div class="cart">
+                <div class="cart-header">
+                    <h3>Giỏ hàng của bạn</h3>
+                    <span class="close-cart">&times;</span>
+                </div>
+                <div class="cart-items"></div>
+                <div class="cart-footer">
+                    <h4>Tổng: <span id="cart-total">0đ</span></h4>
+                    <button class="checkout-btn">Thanh toán</button>
+                </div>
+            </div>
         </div>
-        <div class="cart-items"></div>
-        <div class="cart-footer">
-            <h4>Tổng: <span id="cart-total">0đ</span></h4>
-            <button class="checkout-btn">Thanh toán</button>
-        </div>
-    </div>
-</div>
     </main>
 
     <footer>

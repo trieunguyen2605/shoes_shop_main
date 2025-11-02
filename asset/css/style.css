@@ -61,6 +61,8 @@ header{
 .header-list{
     display: flex;
     padding-left: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-list_item{
@@ -82,21 +84,39 @@ header{
 .header-btn{
     /* font-weight: 450; */
     font-size: 16px;
+    margin-left: 20px;
     /* margin-right: 10px; */
 }
 
+.btn-logIN{
+    margin-top: 4px;
+}
+.header__btn-admin{
+    margin-right: 0;
+    border: 1px solid #f3f3f3;
+    padding: 4px;
+    background-color: #21deff;
+    border-radius: 5px;
+    color: white;
+}
+
+.header-btn-list_wrap{
+    display: flex;
+    list-style: none;
+}
 .header-btn_link{
     text-decoration: none;
     color: #000;
+}
+
+.header-link_admin{
+    color: white;
 }
 
 .header-btn_link:hover{
     color: rgb(255, 175, 28);
 }
 
-.header-btn:nth-child(1){
-    margin-right: 16px;
-}
 
 .header_wrap{
     display: flex;
@@ -154,6 +174,14 @@ header{
 
 }
 
+.add__products{
+    margin-right: 44px;
+    border: 1px solid #e33030;
+    padding: 4px;
+    background-color: #df3232;
+    border-radius: 5px;
+    color: white;
+}
 .buy-icon{
     color: rgb(52, 43, 43);
     font-size: 24px;
@@ -219,11 +247,12 @@ header{
 
 .info-rating{
     display: flex;
+    margin-top: 10px;
 }
 
 .info-rating_item{
     margin-right: 10px;
-    color: rgb(252, 252, 39);
+    color: rgb(233, 233, 17);
 }
 
 /*  product  */
@@ -234,7 +263,7 @@ header{
 }
 
 .product-category_wrap{
-    margin-top: 44px;
+    margin-top: 24px;
 }
 
 .category{
@@ -260,13 +289,19 @@ header{
     scroll-margin-top: 200px;
 }
 .product-list{
-    background-color: #f6f8f7
-;
+    background-color: #f6f8f7;
     padding: 10px;
 }
+.content-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 .product-list h1{
-    margin-top: 40px;
+    margin-top: 20px;
+    margin-bottom: 16px;
 }
 .product-card {
     background: #fff;
@@ -276,6 +311,7 @@ header{
     text-align: center;
     transition: 0.3s;
     /* width: 220px; */
+    height: 100%;
 }
 .product-card:hover {
     transform: translateY(-5px);
@@ -498,4 +534,9 @@ header{
     font-size: 22px;
     cursor: pointer;
     color: #270754;
+}
+
+/* modal */
+.modal{
+    animation: high 0.4s ease;
 }

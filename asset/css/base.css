@@ -5,3 +5,16 @@
 .active a{
     color: red;                             
 }
+
+.fade{
+    display: none;
+}
+
+@keyframes high {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

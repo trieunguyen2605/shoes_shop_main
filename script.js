@@ -101,3 +101,41 @@ function removeItem(index) {
     cart.splice(index, 1);
     renderCart();
 }
+
+// hiện ra thông báo khi người dùng ấn thêm vào giỏ hàng 
+const button = document.querySelectorAll(".button");
+console.log(button);
+button.forEach((child)=>{
+    child.addEventListener("click",()=>{
+    alert(" Chúc mừng bạn đã thêm sản phẩm thành công vào giỏ hàng !1;")
+})
+})
+
+
+// tìm kiếm 
+const search = document.querySelector(".header-search_input");
+const productName = document.querySelectorAll(".product-name");
+const product_list = document.querySelector(".product-list");
+
+search.addEventListener("keyup",()=>{
+    // kéo xuống khi ấn 
+    //product_list.getBoundingClientRect().top : là vị trí của element với khung nhìn 
+    //window.pageYOffset: xem màn hình đã cuộn được bao nhiêu với đầu trang 
+    // window.scrollTo : cuộn đến vị trí nhất định 
+    // behavior: "smooth" : cuộn không bị giật 
+    const offset = product_list.getBoundingClientRect().top + window.pageYOffset - 100; 
+    window.scrollTo({
+        top: offset,
+        behavior: "smooth"
+    });
+
+    let input_value = search.value.toLowerCase().trim();
+    productName.forEach((child)=>{
+        let nameSP = child.textContent.toLowerCase().trim();
+        if(nameSP.includes(input_value)){
+            child.parentElement.parentElement.classList.remove("fade");
+        }else{
+            child.parentElement.parentElement.classList.add("fade");
+        }
+    })
+})
