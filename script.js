@@ -145,13 +145,18 @@ search.addEventListener("keyup",()=>{
 // --- MODAL ADD PRODUCT  ---
 const modal = document.getElementById("modal");
 console.log(modal);
-const openModal = document.getElementById("openModal");
 const closeModal = document.getElementById("closeModal");
+const openModalButtons = document.querySelectorAll(".openModal");
+let currentCategory = null;
 
-// Mở modal
-openModal.addEventListener("click", () => {
-    modal.style.display = "flex";
+openModalButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        currentCategory = btn.getAttribute("data-category");
+        modal.style.display = "flex";
+    });
 });
+
+
 
 // Đóng modal
 closeModal.addEventListener("click", () => {
@@ -166,7 +171,11 @@ window.addEventListener("click", (e) => {
 });
 
 // THÊM SẢN PHẨM  /////////////////////
-let products = JSON.parse(localStorage.getItem("products")) || [];
+let productsData = JSON.parse(localStorage.getItem("productsData")) || {
+    nam: [],
+    nu: [],
+    unisex: []
+};
 
 const form = document.getElementById("addForm");
 const nameInput = document.getElementById("name");
@@ -176,24 +185,25 @@ const productList = document.getElementById("productList");
 
 // hàm hiển thị  sản phẩm 
 // if()
-function renderProducts(){
+function renderCategoryProducts(category, containerId) {
+    const productList = document.getElementById(containerId);
     productList.innerHTML = "";
-    products.forEach((p,index)=>{
+    productsData[category].forEach((p, index) => {
         const item = document.createElement("div");
         item.className = "col-lg-3 pos-re";
-        console.log(image);
         item.innerHTML = `
-                <div class="product-card">
-                    <div><button class="delete" onclick="deleteProduct(${index})">×</button> </div>
-                    <img src="${p.image}" alt="${p.name}">
-                    <h3 class="product-name">${p.name}</h3>
-                    <p class="price">${p.price.toLocaleString()}đ</p>
-                    <button class="button">Thêm vào giỏ</button>
-                </div>
+        <div class="product-card">
+            <div><button class="delete" onclick="deleteProduct('${category}', ${index})">×</button></div>
+            <img src="${p.image}" alt="${p.name}">
+            <h3 class="product-name">${p.name}</h3>
+            <p class="price">${p.price.toLocaleString()}đ</p>
+            <button class="button">Thêm vào giỏ</button>
+        </div>
         `;
         productList.appendChild(item);
-    })
+    });
 }
+
 //
 productList.addEventListener("click", (e) => {
   if (e.target.classList.contains("button")) {
@@ -224,20 +234,30 @@ form.addEventListener("submit",(e)=>{
         image:imageInput.value
     };
 
-    products.push(newProduct);
-    localStorage.setItem("products",JSON.stringify(products));
+if (currentCategory) {
+    productsData[currentCategory].push(newProduct);
+    localStorage.setItem("productsData", JSON.stringify(productsData));
+}
+
 
     form.reset();
-    renderProducts();
+    renderAll();
+     modal.style.display = "none"; //  đóng modal sau khi th
 });
 
 // hàm xóa sản phẩm 
-function deleteProduct(index) {
+function deleteProduct(category, index) {
     if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
-        products.splice(index, 1);
-        localStorage.setItem("products", JSON.stringify(products));
-        renderProducts();
+        productsData[category].splice(index, 1);
+        localStorage.setItem("productsData", JSON.stringify(productsData));
+        renderAll();
     }
 }
 
-renderProducts();
+
+function renderAll() {
+  renderCategoryProducts("nam", "productList");  // Giày Nam
+  renderCategoryProducts("nu", "productListNu"); // Giày Nữ
+  renderCategoryProducts("unisex", "productListUnisex"); // Giày Unisex
+}
+renderAll();
