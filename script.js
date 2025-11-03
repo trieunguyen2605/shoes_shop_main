@@ -39,26 +39,26 @@ closeCart.addEventListener("click", () => {
 });
 
 // Thêm sản phẩm vào giỏ
-const addButtons = document.querySelectorAll(".product-card .button");
+// const addButtons = document.querySelectorAll(".product-card .button");
 
-addButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-        const card = e.target.closest(".product-card");
-        const name = card.querySelector("h3").innerText;
-        const priceText = card.querySelector(".price").innerText.split(" ")[0];
-        const price = parseInt(priceText.replace(/\D/g, ""));
-        const img = card.querySelector("img").src;
+// addButtons.forEach((btn) => {
+//     btn.addEventListener("click", (e) => {
+//         const card = e.target.closest(".product-card");
+//         const name = card.querySelector("h3").innerText;
+//         const priceText = card.querySelector(".price").innerText.split(" ")[0];
+//         const price = parseInt(priceText.replace(/\D/g, ""));
+//         const img = card.querySelector("img").src;
 
-        const existingItem = cart.find(item => item.name === name);
-        if (existingItem) {
-            existingItem.quantity++;
-        } else {
-            cart.push({ name, price, img, quantity: 1 });
-        }
+//         const existingItem = cart.find(item => item.name === name);
+//         if (existingItem) {
+//             existingItem.quantity++;
+//         } else {
+//             cart.push({ name, price, img, quantity: 1 });
+//         }
 
-        renderCart();
-    });
-});
+//         renderCart();
+//     });
+// });
 
 // Hiển thị giỏ hàng
 function renderCart() {
@@ -103,13 +103,13 @@ function removeItem(index) {
 }
 
 // hiện ra thông báo khi người dùng ấn thêm vào giỏ hàng 
-const button = document.querySelectorAll(".button");
-console.log(button);
-button.forEach((child)=>{
-    child.addEventListener("click",()=>{
-    alert(" Chúc mừng bạn đã thêm sản phẩm thành công vào giỏ hàng !1;")
-})
-})
+// const button = document.querySelectorAll(".button");
+// console.log(button);
+// button.forEach((child)=>{
+//     child.addEventListener("click",()=>{
+//     alert(" Chúc mừng bạn đã thêm sản phẩm thành công vào giỏ hàng !1;")
+// })
+// })
 
 
 // tìm kiếm 
@@ -175,26 +175,45 @@ const imageInput = document.getElementById("image");
 const productList = document.getElementById("productList");
 
 // hàm hiển thị  sản phẩm 
+// if()
 function renderProducts(){
     productList.innerHTML = "";
     products.forEach((p,index)=>{
         const item = document.createElement("div");
-        item.className = "product_add";
+        item.className = "col-lg-3 pos-re";
+        console.log(image);
         item.innerHTML = `
-            <div class="col-lg-3">
                 <div class="product-card">
-                    <button class="delete" onclick="deleteProduct(${index})">×</button>
+                    <div><button class="delete" onclick="deleteProduct(${index})">×</button> </div>
                     <img src="${p.image}" alt="${p.name}">
                     <h3 class="product-name">${p.name}</h3>
-                    <p class="price">${p.price.toLocaleString()}đ<span class="old-price">240.000đ</span></p>
+                    <p class="price">${p.price.toLocaleString()}đ</p>
                     <button class="button">Thêm vào giỏ</button>
                 </div>
-            </div>
         `;
         productList.appendChild(item);
     })
 }
+//
+productList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("button")) {
+    const productCard = e.target.closest(".product-card");
+    const name = productCard.querySelector(".product-name").textContent;
+    const priceText = productCard.querySelector(".price").textContent;
+    const price = parseInt(priceText.replace(/[^\d]/g, ""));
+    const img = productCard.querySelector("img").src;
 
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cart.push({ name, price, img, quantity: 1 });
+    }
+
+    renderCart();
+    alert(` Đã thêm "${name}" vào giỏ hàng!`);
+  }
+});
 // hàm thêm sản phẩm 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -202,7 +221,7 @@ form.addEventListener("submit",(e)=>{
     const newProduct = {
         name:nameInput.value,
         price:Number(priceInput.value),
-        image:imageInput
+        image:imageInput.value
     };
 
     products.push(newProduct);

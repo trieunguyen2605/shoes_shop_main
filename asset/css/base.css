@@ -18,3 +18,7 @@
         opacity: 1;
     }
 }
+
+.pos-re{
+    position: relative;
+}
