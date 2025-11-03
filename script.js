@@ -38,28 +38,6 @@ closeCart.addEventListener("click", () => {
     cartOverlay.style.display = "none";
 });
 
-// Thêm sản phẩm vào giỏ
-// const addButtons = document.querySelectorAll(".product-card .button");
-
-// addButtons.forEach((btn) => {
-//     btn.addEventListener("click", (e) => {
-//         const card = e.target.closest(".product-card");
-//         const name = card.querySelector("h3").innerText;
-//         const priceText = card.querySelector(".price").innerText.split(" ")[0];
-//         const price = parseInt(priceText.replace(/\D/g, ""));
-//         const img = card.querySelector("img").src;
-
-//         const existingItem = cart.find(item => item.name === name);
-//         if (existingItem) {
-//             existingItem.quantity++;
-//         } else {
-//             cart.push({ name, price, img, quantity: 1 });
-//         }
-
-//         renderCart();
-//     });
-// });
-
 // Hiển thị giỏ hàng
 function renderCart() {
     cartItemsContainer.innerHTML = "";
@@ -114,8 +92,9 @@ function removeItem(index) {
 
 // tìm kiếm 
 const search = document.querySelector(".header-search_input");
-const productName = document.querySelectorAll(".product-name");
+// const productName = document.querySelectorAll(".product-name");
 const product_list = document.querySelector(".product-list");
+// const search = document.querySelector(".header-search_input");
 
 search.addEventListener("keyup",()=>{
     // kéo xuống khi ấn 
@@ -128,17 +107,33 @@ search.addEventListener("keyup",()=>{
         top: offset,
         behavior: "smooth"
     });
+// tìm kiếm sản phẩm 
+    // let input_value = search.value.toLowerCase().trim();
+    // productName.forEach((child)=>{
+    //     let nameSP = child.textContent.toLowerCase().trim();
+    //     if(nameSP.includes(input_value)){
+    //         child.parentElement.parentElement.classList.remove("fade");
+    //     }else{
+    //         child.parentElement.parentElement.classList.add("fade");
+    //     }
+    // })
 
-    let input_value = search.value.toLowerCase().trim();
-    productName.forEach((child)=>{
-        let nameSP = child.textContent.toLowerCase().trim();
-        if(nameSP.includes(input_value)){
-            child.parentElement.parentElement.classList.remove("fade");
-        }else{
-            child.parentElement.parentElement.classList.add("fade");
+    const input_value = search.value.toLowerCase().trim();
+
+    // lấy tất cả sản phẩm hiện có (vì có thể vừa render lại)
+    const allProducts = document.querySelectorAll(".product-card");
+
+    allProducts.forEach(card => {
+        const nameEl = card.querySelector(".product-name");
+        const nameSP = nameEl.textContent.toLowerCase().trim();
+
+        if (nameSP.includes(input_value)) {
+            card.parentElement.classList.remove("fade");
+        } else {
+            card.parentElement.classList.add("fade");
         }
-    })
-})
+    });
+});
 
 // THÊM SẢN PHẨM KHI ẤN 
 
@@ -221,7 +216,7 @@ productList.addEventListener("click", (e) => {
     }
 
     renderCart();
-    alert(` Đã thêm "${name}" vào giỏ hàng!`);
+    // alert(` Đã thêm "${name}" vào giỏ hàng!`);
   }
 });
 // hàm thêm sản phẩm 
@@ -261,3 +256,34 @@ function renderAll() {
   renderCategoryProducts("unisex", "productListUnisex"); // Giày Unisex
 }
 renderAll();
+
+
+// hiện ra thông báo đã thêm sản phẩm thành công 
+const button_tb = document.querySelectorAll(".product-card .button");
+const notify = document.querySelector(".notify");
+button_tb.forEach((child)=>{
+    child.addEventListener("click",()=>{
+        notify.style.display = "block";
+        notify.style.animation = "runLeft 2s ease ,high1 2s linear 5s forwards"
+        setTimeout(() => {
+            notify.style.display = "none";
+            notify.style.animation = "";
+        }, 2000);
+    })
+})
+
+// admin
+const admin = document.querySelector(".header__btn-admin");
+// console.log(delete_btn);
+// console.log(admin)
+const product_card = document.querySelectorAll(".product-card");
+// const 
+
+
+admin.addEventListener("click",()=>{ 
+    admin.textContent = "Khách";
+    product_card.forEach((child)=>{
+        const delete_btn = child.querySelector(".delete")
+        delete_btn.style.display = "none";
+    })
+})
