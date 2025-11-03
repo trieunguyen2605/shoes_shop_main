@@ -263,7 +263,7 @@ const button_tb = document.querySelectorAll(".product-card .button");
 const notify = document.querySelector(".notify");
 button_tb.forEach((child)=>{
     child.addEventListener("click",()=>{
-        notify.style.display = "block";
+        notify.style.display = "flex";
         notify.style.animation = "runLeft 2s ease ,high1 2s linear 5s forwards"
         setTimeout(() => {
             notify.style.display = "none";
@@ -274,16 +274,31 @@ button_tb.forEach((child)=>{
 
 // admin
 const admin = document.querySelector(".header__btn-admin");
-// console.log(delete_btn);
-// console.log(admin)
 const product_card = document.querySelectorAll(".product-card");
-// const 
-
+const btn_add = document.querySelectorAll(".btn-add")
+let btn_test = localStorage.getItem("btn_test") === "true";
 
 admin.addEventListener("click",()=>{ 
-    admin.textContent = "Khách";
-    product_card.forEach((child)=>{
-        const delete_btn = child.querySelector(".delete")
-        delete_btn.style.display = "none";
-    })
+    if(btn_test){
+        admin.textContent = "Khách";
+        product_card.forEach((child)=>{
+            const delete_btn = child.querySelector(".delete");
+            if(delete_btn) delete_btn.style.display = "none";
+        })
+        btn_add.forEach((child)=>{
+            child.style.display = "none";
+        })
+    }
+    else{
+        admin.textContent = "Admin";
+        product_card.forEach((child)=>{
+            const delete_btn = child.querySelector(".delete");
+            if(delete_btn) delete_btn.style.display = "block";
+        })
+        btn_add.forEach((child)=>{
+            child.style.display = "block";
+        })
+}
+btn_test = !btn_test;
+localStorage.setItem("btn_test",btn_test);
 })
