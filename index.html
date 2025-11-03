@@ -125,9 +125,10 @@
                             <section id="content-section1">
                                 <div class="content-title">
                                     <h1> Giày Nam </h1>
-                                    <i class="fa-solid fa-plus"></i>
+                                    <!-- <i title="Thêm sản phẩm!" tit class="content-title__icon fa-solid fa-plus"></i> -->
+                                    <button class="btn-add" id="openModal">➕ Thêm sản phẩm</button>
                                 </div>
-                                <div class="row gx-2 gy-2">
+                                <div class="row gx-2 gy-2" id="productList">
                                     
                                     <div class="col-lg-3">
                                         <div class="product-card">
@@ -164,7 +165,10 @@
                                 </div>
                             </section>
                             <section id="content-section2">
-                                <h1> Giày Nữ </h1>
+                                <div class="content-title">
+                                    <h1> Giày Nữ </h1>
+                                    <i title="Thêm sản phẩm!" tit class="content-title__icon fa-solid fa-plus"></i>
+                                </div>
                                 <div class="row gx-2 gy-2">
                                     <div class="col-lg-3">
                                         <div class="product-card">
@@ -194,7 +198,10 @@
                                 </div>
                             </section>
                             <section id="content-section3">
-                                <h1> Giày Unisex </h1>
+                                <div class="content-title">
+                                    <h1> Giày Unisex </h1>
+                                    <i title="Thêm sản phẩm!" tit class="content-title__icon fa-solid fa-plus"></i>
+                                </div>
                                 <div class="row gx-2 gy-2">
                                     
                                     <div class="col-lg-3">
@@ -302,7 +309,20 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
     
+    <!-- modal thêm sản phẩm  -->
+    <div class="modal modal__add" id="modal">
+        <div class="modal-content modal-content_add">
+            <span class="close" id="closeModal">&times;</span>
+            <h3>Thêm sản phẩm mới</h3>
+            <form id="addForm">
+                <input type="text" id="name" placeholder="Tên sản phẩm" required><br><br>
+                <input type="number" id="price" placeholder="Giá" required><br><br>
+                <input type="text" id="image" placeholder="Link ảnh" required><br><br>
+                <button type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

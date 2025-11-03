@@ -139,3 +139,86 @@ search.addEventListener("keyup",()=>{
         }
     })
 })
+
+// THÊM SẢN PHẨM KHI ẤN 
+
+// --- MODAL ADD PRODUCT  ---
+const modal = document.getElementById("modal");
+console.log(modal);
+const openModal = document.getElementById("openModal");
+const closeModal = document.getElementById("closeModal");
+
+// Mở modal
+openModal.addEventListener("click", () => {
+    modal.style.display = "flex";
+});
+
+// Đóng modal
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Khi click ra ngoài modal thì ẩn đi
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+// THÊM SẢN PHẨM  /////////////////////
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+const form = document.getElementById("addForm");
+const nameInput = document.getElementById("name");
+const priceInput = document.getElementById("price");
+const imageInput = document.getElementById("image");
+const productList = document.getElementById("productList");
+
+// hàm hiển thị  sản phẩm 
+function renderProducts(){
+    productList.innerHTML = "";
+    products.forEach((p,index)=>{
+        const item = document.createElement("div");
+        item.className = "product_add";
+        item.innerHTML = `
+            <div class="col-lg-3">
+                <div class="product-card">
+                    <button class="delete" onclick="deleteProduct(${index})">×</button>
+                    <img src="${p.image}" alt="${p.name}">
+                    <h3 class="product-name">${p.name}</h3>
+                    <p class="price">${p.price.toLocaleString()}đ<span class="old-price">240.000đ</span></p>
+                    <button class="button">Thêm vào giỏ</button>
+                </div>
+            </div>
+        `;
+        productList.appendChild(item);
+    })
+}
+
+// hàm thêm sản phẩm 
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    const newProduct = {
+        name:nameInput.value,
+        price:Number(priceInput.value),
+        image:imageInput
+    };
+
+    products.push(newProduct);
+    localStorage.setItem("products",JSON.stringify(products));
+
+    form.reset();
+    renderProducts();
+});
+
+// hàm xóa sản phẩm 
+function deleteProduct(index) {
+    if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+        products.splice(index, 1);
+        localStorage.setItem("products", JSON.stringify(products));
+        renderProducts();
+    }
+}
+
+renderProducts();
