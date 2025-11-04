@@ -93,7 +93,7 @@ function updateQuantity(index, value) {
         cart[index].quantity = newValue;
     }
     if(newValue>=100){
-        alert(" bạn chọn nhiueef sản phẩm quá! , hãy liên hệ với shop để được tư vấn nha")
+        alert(" bạn chọn nhiều sản phẩm quá! , hãy liên hệ với shop để được tư vấn nha")
     }
     renderCart();
 }
@@ -335,14 +335,14 @@ document.addEventListener("click", function (e) {
     const sizes = [26,27,28,29,30,31,32,33,34];
     sizeButtonsContainer.innerHTML = "";
     sizes.forEach(size => {
-      const btn = document.createElement("button");
-      btn.textContent = size;
-      btn.addEventListener("click", () => {
-        document.querySelectorAll("#sizeButtons button").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        selectedSize = size;
-      });
-      sizeButtonsContainer.appendChild(btn);
+        const btn = document.createElement("button");
+        btn.textContent = size;
+        btn.addEventListener("click", () => {
+            document.querySelectorAll("#sizeButtons button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            selectedSize = size;
+        });
+        sizeButtonsContainer.appendChild(btn);
     });
     
     detailModal.style.display = "flex";
