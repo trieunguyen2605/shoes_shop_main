@@ -575,7 +575,24 @@ main{
         animation: high 0.4s ease;
     }
 
+    .addform{
+        /* display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; */
+        /* height: 200px; */
+    }
+
+    .addform input {
+        margin: 0;          /* bỏ khoảng cách mặc định */
+        padding: 8px;       /* hoặc ít padding nếu muốn ô nhỏ hơn */
+        width: 100%;        /* full width nếu muốn */
+        box-sizing: border-box; /* để padding không làm rộng hơn form */
+    }
     .modal-content_add {
+        display: flex;
+        justify-content: center;
+        align-content: center;
         background: white;
         padding: 20px;
         border-radius: 10px;
@@ -583,12 +600,27 @@ main{
         position: relative;
     }
 
+    .modal-content_add h3{
+        white-space: nowrap;
+    }
+
     .close {
         position: absolute;
-        top: 10px; right: 10px;
+        top: -12px;
+        right: 6px;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 33px;
         color: red;
+    }
+
+    .btn_add{
+        background: #2e8bfa;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 12px;
+        cursor: pointer;
+        width: 100px;
     }
 
     /* .product-list {
@@ -725,3 +757,4 @@ main{
     border-radius: 10px;
     padding: 8px 12px;
 }
+
