@@ -332,8 +332,26 @@
         </div>
     </div>
 
-    <!--  hiển thị thông báo khi thêm giỏ hàng  -->
-    
+    <!-- thông báo khi nhập quá nhiều sản phầm  -->
+    <!-- Modal chi tiết sản phẩm -->
+<div class="product-detail-modal" id="productDetailModal">
+    <div class="modal-content">
+        <span class="close-detail">&times;</span>
+        <img id="detailImage" src="" alt="">
+        <h2 id="detailName"></h2>
+        <p id="detailPrice"></p>
+
+        <div class="size-options">
+        <p>Chọn size:</p>
+        <div id="sizeButtons">
+            <!-- Các nút size sẽ được tạo bằng JS -->
+        </div>
+        </div>
+
+        <button id="addToCartBtn" class="btn_tb">Thêm vào giỏ hàng</button>
+    </div>
+</div>
+
     <script src="script.js"></script>
 </body>
 </html>

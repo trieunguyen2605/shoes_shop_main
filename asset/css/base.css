@@ -24,21 +24,19 @@
 }
 
 @keyframes runLeft {
-    from{
+    0%{
         opacity: 0;
         transform: translateX(120%);
     }
-    to{
+    100%{
         opacity: 1;
         transform: translateX(0);
     }
 }
 
 @keyframes high1 {
-    from{
-        opacity: 1;
-    }
     to{
         opacity: 0;
+        transform: translateX(120%);
     }
 }

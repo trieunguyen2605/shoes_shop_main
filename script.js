@@ -56,9 +56,16 @@ function renderCart() {
             </div>
             <div class="item-quantity">
                 <button onclick="changeQuantity(${index}, -1)">-</button>
-                <span>${item.quantity}</span>
+                <input 
+                    type="number" 
+                    min="1" 
+                    value="${item.quantity}" 
+                    onchange="updateQuantity(${index}, this.value)" 
+                    style="width:50px;text-align:center;"
+                >
                 <button onclick="changeQuantity(${index}, 1)">+</button>
             </div>
+
             <i class="fa-solid fa-trash" style="cursor:pointer;color:red;" onclick="removeItem(${index})"></i>
         `;
         cartItemsContainer.appendChild(div);
@@ -74,21 +81,25 @@ function changeQuantity(index, change) {
     renderCart();
 }
 
+
+
+////////////
+function updateQuantity(index, value) {
+    const newValue = parseInt(value);
+    if (isNaN(newValue) || newValue <= 0) {
+        // Nếu nhập số không hợp lệ thì xóa sản phẩm
+        cart.splice(index, 1);
+    } else {
+        cart[index].quantity = newValue;
+    }
+    renderCart();
+}
+
 // Xóa sản phẩm
 function removeItem(index) {
     cart.splice(index, 1);
     renderCart();
 }
-
-// hiện ra thông báo khi người dùng ấn thêm vào giỏ hàng 
-// const button = document.querySelectorAll(".button");
-// console.log(button);
-// button.forEach((child)=>{
-//     child.addEventListener("click",()=>{
-//     alert(" Chúc mừng bạn đã thêm sản phẩm thành công vào giỏ hàng !1;")
-// })
-// })
-
 
 // tìm kiếm 
 const search = document.querySelector(".header-search_input");
@@ -258,20 +269,6 @@ function renderAll() {
 renderAll();
 
 
-// hiện ra thông báo đã thêm sản phẩm thành công 
-const button_tb = document.querySelectorAll(".product-card .button");
-const notify = document.querySelector(".notify");
-button_tb.forEach((child)=>{
-    child.addEventListener("click",()=>{
-        notify.style.display = "flex";
-        notify.style.animation = "runLeft 2s ease ,high1 2s linear 5s forwards"
-        setTimeout(() => {
-            notify.style.display = "none";
-            notify.style.animation = "";
-        }, 2000);
-    })
-})
-
 // admin
 const admin = document.querySelector(".header__btn-admin");
 const product_card = document.querySelectorAll(".product-card");
@@ -302,3 +299,93 @@ admin.addEventListener("click",()=>{
 btn_test = !btn_test;
 localStorage.setItem("btn_test",btn_test);
 })
+
+//  phần size sản phẩm
+// -------------------- PRODUCT DETAIL MODAL --------------------
+const detailModal = document.getElementById("productDetailModal");
+const detailImage = document.getElementById("detailImage");
+const detailName = document.getElementById("detailName");
+const detailPrice = document.getElementById("detailPrice");
+const sizeButtonsContainer = document.getElementById("sizeButtons");
+const addToCartBtn = document.getElementById("addToCartBtn");
+const closeDetail = document.querySelector(".close-detail");
+
+let selectedProduct = null;
+let selectedSize = null;
+
+// Hiển thị modal khi click vào sản phẩm
+document.addEventListener("click", function (e) {
+  const card = e.target.closest(".product-card");
+  if (card) {
+    const img = card.querySelector("img").src;
+    const name = card.querySelector("h3").textContent;
+    const price = card.querySelector("p").textContent;
+
+    selectedProduct = { img, name, price };
+
+    detailImage.src = img;
+    detailName.textContent = name;
+    detailPrice.textContent = price;
+    selectedSize = null; // reset
+
+    // Tạo các nút size
+    const sizes = [26,27,28,29,30,31,32,33,34];
+    sizeButtonsContainer.innerHTML = "";
+    sizes.forEach(size => {
+      const btn = document.createElement("button");
+      btn.textContent = size;
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#sizeButtons button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedSize = size;
+      });
+      sizeButtonsContainer.appendChild(btn);
+    });
+    
+    detailModal.style.display = "flex";
+  }
+});
+
+// Đóng modal chi tiết
+closeDetail.addEventListener("click", () => {
+  detailModal.style.display = "none";
+});
+
+window.addEventListener("click", e => {
+  if (e.target === detailModal) {
+    detailModal.style.display = "none";
+  }
+});
+
+// Khi ấn "Thêm vào giỏ hàng"
+addToCartBtn.addEventListener("click", () => {
+  if (!selectedSize) {
+    alert("Vui lòng chọn size giày!");
+    return;
+  }
+  
+  // Lưu vào localStorage hoặc danh sách giỏ hàng
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push({ ...selectedProduct, size: selectedSize });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  
+  //   alert(`Đã thêm ${selectedProduct.name} (size ${selectedSize}) vào giỏ hàng!`);
+  
+  detailModal.style.display = "none";
+});
+
+    
+    // hiện ra thông báo đã thêm sản phẩm thành công 
+    const button_tb = document.querySelectorAll(".btn_tb");
+    const notify = document.querySelector(".notify");
+    button_tb.forEach((child)=>{
+        child.addEventListener("click",()=>{
+            notify.style.display = "flex";
+            // notify.offsetHeight;
+            notify.style.animation = " runLeft 0.5s ease forwards , high1 2s ease 2.5s forwards"
+            setTimeout(() => {
+                notify.style.display = "none";
+                notify.style.animation = "";
+            }, 2000);
+        })
+    })
