@@ -92,6 +92,9 @@ function updateQuantity(index, value) {
     } else {
         cart[index].quantity = newValue;
     }
+    if(newValue>=100){
+        alert(" bạn chọn nhiueef sản phẩm quá! , hãy liên hệ với shop để được tư vấn nha")
+    }
     renderCart();
 }
 
