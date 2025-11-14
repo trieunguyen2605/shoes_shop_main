@@ -57,6 +57,7 @@ function renderCart() {
             <div class="item-quantity">
                 <button onclick="changeQuantity(${index}, -1)">-</button>
                 <input 
+                    class ="input_quantity"
                     type="number" 
                     min="1" 
                     value="${item.quantity}" 
@@ -93,11 +94,29 @@ function updateQuantity(index, value) {
         cart[index].quantity = newValue;
     }
     if(newValue>=100){
-        alert(" bạn chọn nhiều sản phẩm quá! , hãy liên hệ với shop để được tư vấn nha")
+        let ktra = confirm("Bạn mua nhiều số lượng quá , liên hệ với shop để tư vấn nha <3 ")
+        if(ktra){
+          alert("bạn để lại số điện thoại để mình lấy thông tin chốt đơn cho bạn nhá !");
+          prompt("mời bạn nhập số điện thoại ");
+        }else{
+          alert("rất tiếc , bạn không thể mua hàng của chúng tôi !"); d
+        }
     }
     renderCart();
 }
+const checkout_btn = document.querySelector(".checkout-btn");
 
+let input = ()=>{
+    const input_quantity = document.querySelector(".input_quantity");
+    return input_quantity.value;
+}
+// console.log(checkout_btn);
+checkout_btn.addEventListener("click",()=>{
+    if(input() >= 100 ){
+        alert(" nhiều quá !")
+    }
+
+})
 // Xóa sản phẩm
 function removeItem(index) {
     cart.splice(index, 1);
@@ -202,7 +221,7 @@ function renderCategoryProducts(category, containerId) {
         item.className = "col-lg-3 pos-re";
         item.innerHTML = `
         <div class="product-card">
-            <div><button class="delete" onclick="deleteProduct('${category}', ${index})">×</button></div>
+            <div><button class="delete" data-category="${category}" data-index="${index}">×</button></div>
             <img src="${p.image}" alt="${p.name}">
             <h3 class="product-name">${p.name}</h3>
             <p class="price">${p.price.toLocaleString()}đ</p>
@@ -255,7 +274,8 @@ if (currentCategory) {
 });
 
 // hàm xóa sản phẩm 
-function deleteProduct(category, index) {
+function deleteProduct(category, index,event) {
+    event.stopPropagation();
     if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
         productsData[category].splice(index, 1);
         localStorage.setItem("productsData", JSON.stringify(productsData));
@@ -268,8 +288,27 @@ function renderAll() {
   renderCategoryProducts("nam", "productList");  // Giày Nam
   renderCategoryProducts("nu", "productListNu"); // Giày Nữ
   renderCategoryProducts("unisex", "productListUnisex"); // Giày Unisex
+  attachDeleteEvents();
 }
 renderAll();
+
+function attachDeleteEvents() {
+  const deleteButtons = document.querySelectorAll(".delete");
+  deleteButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // 🔥 chặn click lan lên document (modal sẽ KHÔNG mở)
+      const category = btn.dataset.category;
+      const index = btn.dataset.index;
+
+      if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+        productsData[category].splice(index, 1);
+        localStorage.setItem("productsData", JSON.stringify(productsData));
+        renderAll();
+      }
+    });
+  });
+}
+
 
 
 // admin
